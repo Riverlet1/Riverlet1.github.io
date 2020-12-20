@@ -21,16 +21,16 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="一些学习笔记和随笔">
+<meta name="description" content="技术沉淀，生活点滴">
 <meta property="og:type" content="website">
-<meta property="og:title" content="王同学的博客">
+<meta property="og:title" content="二向箔">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="王同学的博客">
-<meta property="og:description" content="一些学习笔记和随笔">
+<meta property="og:site_name" content="二向箔">
+<meta property="og:description" content="技术沉淀，生活点滴">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="Wang Kun">
+<meta property="article:author" content="riverlet">
 <meta name="twitter:card" content="summary">
 
 
@@ -46,7 +46,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>王同学的博客</title>
+<title>二向箔</title>
   
 
 
@@ -106,13 +106,14 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">王同学的博客</h1>
+      <h1 class="site-title">二向箔</h1>
       <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -123,14 +124,40 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">0</span></a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">0</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">1</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">2</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -161,10 +188,10 @@
 
         <section class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Wang Kun"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">Wang Kun</p>
-  <div class="site-description" itemprop="description">一些学习笔记和随笔</div>
+    <img class="site-author-image" itemprop="image" alt="riverlet"
+      src="/images/tom.png">
+  <p class="site-author-name" itemprop="name">riverlet</p>
+  <div class="site-description" itemprop="description">技术沉淀，生活点滴</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
@@ -174,6 +201,18 @@
           <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -221,13 +260,13 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/20/makefile%E6%96%87%E4%BB%B6%E8%AF%A6%E7%BB%86%E8%A7%A3%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Wang Kun">
-      <meta itemprop="description" content="一些学习笔记和随笔">
+      <meta itemprop="image" content="/images/tom.png">
+      <meta itemprop="name" content="riverlet">
+      <meta itemprop="description" content="技术沉淀，生活点滴">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王同学的博客">
+      <meta itemprop="name" content="二向箔">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -243,7 +282,16 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-12-20 12:30:16 / 修改时间：12:30:33" itemprop="dateCreated datePublished" datetime="2020-12-20T12:30:16+08:00">2020-12-20</time>
+      <time title="创建时间：2020-12-20 12:30:16 / 修改时间：22:28:13" itemprop="dateCreated datePublished" datetime="2020-12-20T12:30:16+08:00">2020-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
     </span>
 
   
@@ -254,14 +302,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
+      <span>2.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -272,30 +320,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>#什么是makefile</p>
-<blockquote>
-<p>Most often, the makefile directs Make on how to compile and link a program.</p>
-</blockquote>
-<p>在软件开发中，makefile是一类非常重要的文件，是程序员实现自动化编译程序的一种手段。<br>#从例子中学习<br>我们现在在一个文件夹放置着sort0.h,sort.c,sortMain.c三个文件。其中sortMain.c和sort0.c中包含了sort.h。<br>在linux环境下，如果想进行编译链接，生成可执行文件，需要输入下面的命令。<br><code>gcc -o sortMain sort0.c sortMain.c</code><br>如果没有makefile，我们在开发和调试的过程中需要不停地输入命令，这样做有很多的不足。一是会做许多重复的劳动，浪费时间，效率比较低下。二是如果工程比较大，文件很多的时候，文件之间的依赖关系会非常复杂，在编译和链接时极容易出错。三是一旦工程中修改了一个文件，就会导致整个工程被重新编译，非常影响开发效率。由于以上种种不足，我们需要用makefile来解决。<br>上面一行命令在makefile中该如何表示呢。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sortMain : sort0.c sortMain.c</span><br><span class="line">    gcc -o sortMain sort0.c sortMain.c</span><br></pre></td></tr></table></figure>
-<p>这就是一个最基本的makefile文件了，它主要由三部分组成。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">target : prerequisites...</span><br><span class="line">      command</span><br></pre></td></tr></table></figure>
-<p>第一部分是target，这里是<code>sortMain</code>，表示我们想要生成的目标文件。<br>第二部分是prerequisites，这里是<code>sort0.c sortMain.c</code>，这里是依赖表，表示想要生成目标文件，必须提供表中的文件。<br>第三部分是command，是一条命令。<br>一二部分叫做依赖关系表，二中的文件只要有一个发生了变化，就会触发第三部分command。<br>有了makefile，我们只要把它放在工程的目录下，输入make就可自动执行。</p>
-<blockquote>
-<p>请注意，在第二行的“gcc”命令之前必须要有一个tab缩进。语法规定Makefile中的任何命令之前都必须要有一个tab缩进，否则make就会报错。</p>
-</blockquote>
-<p>#改进makefile<br>上面的makefile只有最基本的功能，我们接下来一步步修改它，实现更加灵活的功能。<br>先加入几个容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 cc &#x3D; gcc</span><br><span class="line">2 prom &#x3D; sortMain</span><br><span class="line">3 src &#x3D; sort0.c sortMain.c</span><br><span class="line">4 </span><br><span class="line">5 $(prom) : $(src)</span><br><span class="line">6             $(cc) -o $(prom) $(src)</span><br></pre></td></tr></table></figure>
-<p>加入的几个变量严格意义上是不变的，类似于c语言中的宏定义。把cc，prom，src理解成容器，把对应的内容放进去，可以随时修改。在写makefile每一组成单元的时候，可以使用这些容器，避免了重复的字符串输入。也方便后续修改。<br>现在我们的makefile比较灵活了，但是仔细观察，发现我们的依赖关系仍然很重，无法解决修改一个文件需全部重新编译的问题。<br>我们发现整理出一个合适的依赖关系链非常有必要，而关系链也不是唯一的，根据工程实际考虑。在这个例子中，因为sort.h不在依赖关系表中，所以它的变化不会被侦测到，需要把其引入。我们考虑编译的具体过程，可执行文件生成需要依赖.o文件，.o文件的生成分别依赖各自对应的.c文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> 1 cc &#x3D; gcc</span><br><span class="line"> 2 prom &#x3D; sortMain</span><br><span class="line"> 3 deps &#x3D; sort.h</span><br><span class="line"> 4 obj &#x3D; sort0.o sortMain.o</span><br><span class="line"> 5 </span><br><span class="line"> 6 $(prom) : $(obj)</span><br><span class="line"> 7             $(cc) -o $(prom) $(obj)</span><br><span class="line"> 8 </span><br><span class="line"> 9 sort0.o : sort0.c $(deps)</span><br><span class="line">10     $(cc) -c sort0.c</span><br><span class="line">11 </span><br><span class="line">12 sortMain.o : sortMain.c $(deps)</span><br><span class="line">13     $(cc) -c sortMain.c</span><br></pre></td></tr></table></figure>
-<p>以上，我们可以实现依赖中包含所有源文件，重新部分编译等功能。但是，我们发现代码非常冗余，需要利用makefile的语法规则精简以上代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> 1 cc &#x3D; gcc</span><br><span class="line"> 2 prom &#x3D; sortMain</span><br><span class="line"> 3 deps &#x3D; sort.h</span><br><span class="line"> 4 obj &#x3D; sort0.o sortMain.o</span><br><span class="line"> 5 </span><br><span class="line"> 6 $(prom) : $(obj)</span><br><span class="line"> 7             $(cc) -o $(prom) $(obj)</span><br><span class="line"> 8 </span><br><span class="line"> 9 %.o : %.c $(deps)</span><br><span class="line">10     $(cc) -c $&lt; -o $@</span><br><span class="line">11 </span><br><span class="line">12 clean:</span><br><span class="line">13     rm $(obj) $(prom)</span><br></pre></td></tr></table></figure>
-<p>这样就简洁多了，但是好像还缺少一个功能，就是我们经常使用的make clean。我们把它加上。<br>接下来我们还要解决一个问题，就是向工程中添加.c.h文件的时候需要手工操作，为此进一步修改。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> 1 cc &#x3D; gcc</span><br><span class="line"> 2 prom &#x3D; sortMain</span><br><span class="line"> 3 deps &#x3D; $(shell find .&#x2F; -name &quot;*.h&quot;)</span><br><span class="line"> 4 src &#x3D; $(shell find .&#x2F; -name &quot;*.c&quot;)</span><br><span class="line"> 5 obj &#x3D; $(src:%.c&#x3D;%.o)</span><br><span class="line"> 6 </span><br><span class="line"> 7 $(prom) : $(obj)</span><br><span class="line"> 8             $(cc) -o $(prom) $(obj)</span><br><span class="line"> 9 </span><br><span class="line">10 %.o : %.c $(deps)</span><br><span class="line">11     $(cc) -c $&lt; -o $@</span><br><span class="line">12 </span><br><span class="line">13 clean:</span><br><span class="line">14     rm $(obj) $(prom)</span><br></pre></td></tr></table></figure>
-<p>主要是添加了shell函数，这里是发现当前路径内所有的.h.c文件。再把src中所有*.c替换成*.o，实际上就是列出了所有.c文件(需要编译成.o文件)。</p>
-<hr>
-<p>总结一下，从makefile的详细制作步骤中，我们可以学习到优化的过程，从中建立一种思想：对于扩展的需求，只需要去查找相应的规则用以进行编写，实现一次编码，多次使用，提升开发的效率。</p>
-
+          <p>本文讲述了如何从零开始，制作一个makefile文件，循序渐进，更加容易理解</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/20/makefile%E6%96%87%E4%BB%B6%E8%AF%A6%E7%BB%86%E8%A7%A3%E6%9E%90/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -324,13 +357,13 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/20/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Wang Kun">
-      <meta itemprop="description" content="一些学习笔记和随笔">
+      <meta itemprop="image" content="/images/tom.png">
+      <meta itemprop="name" content="riverlet">
+      <meta itemprop="description" content="技术沉淀，生活点滴">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王同学的博客">
+      <meta itemprop="name" content="二向箔">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -344,8 +377,18 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2020-12-20 10:39:51" itemprop="dateCreated datePublished" datetime="2020-12-20T10:39:51+08:00">2020-12-20</time>
+      <time title="创建时间：2020-12-20 10:39:51 / 修改时间：22:29:19" itemprop="dateCreated datePublished" datetime="2020-12-20T10:39:51+08:00">2020-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">测试</span></a>
+        </span>
     </span>
 
   
@@ -356,14 +399,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
+      <span>367</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -374,16 +417,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+          <p>测试文章，这是显示在首页的概述，正文内容均会被隐藏</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/20/hello-world/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -437,7 +479,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Wang Kun</span>
+  <span class="author" itemprop="copyrightHolder">riverlet</span>
 </div>
 <div class="wordcount">
   <span class="post-meta-item">
@@ -445,14 +487,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">NaNm</span>
+    <span title="站点总字数">3k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">NaN:aN</span>
+    <span title="站点阅读时长">2 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -484,6 +526,7 @@
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
+<script src="/js/local-search.js"></script>
 
 
 

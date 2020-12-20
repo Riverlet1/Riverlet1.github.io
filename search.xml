@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/12/20/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>makefile文件详细解析</title>
+    <url>/2020/12/20/makefile%E6%96%87%E4%BB%B6%E8%AF%A6%E7%BB%86%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<p>#什么是makefile</p>
+<blockquote>
+<p>Most often, the makefile directs Make on how to compile and link a program.</p>
+</blockquote>
+<p>在软件开发中，makefile是一类非常重要的文件，是程序员实现自动化编译程序的一种手段。<br>#从例子中学习<br>我们现在在一个文件夹放置着sort0.h,sort.c,sortMain.c三个文件。其中sortMain.c和sort0.c中包含了sort.h。<br>在linux环境下，如果想进行编译链接，生成可执行文件，需要输入下面的命令。<br><code>gcc -o sortMain sort0.c sortMain.c</code><br>如果没有makefile，我们在开发和调试的过程中需要不停地输入命令，这样做有很多的不足。一是会做许多重复的劳动，浪费时间，效率比较低下。二是如果工程比较大，文件很多的时候，文件之间的依赖关系会非常复杂，在编译和链接时极容易出错。三是一旦工程中修改了一个文件，就会导致整个工程被重新编译，非常影响开发效率。由于以上种种不足，我们需要用makefile来解决。<br>上面一行命令在makefile中该如何表示呢。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sortMain : sort0.c sortMain.c</span><br><span class="line">    gcc -o sortMain sort0.c sortMain.c</span><br></pre></td></tr></table></figure>
+<p>这就是一个最基本的makefile文件了，它主要由三部分组成。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">target : prerequisites...</span><br><span class="line">      command</span><br></pre></td></tr></table></figure>
+<p>第一部分是target，这里是<code>sortMain</code>，表示我们想要生成的目标文件。<br>第二部分是prerequisites，这里是<code>sort0.c sortMain.c</code>，这里是依赖表，表示想要生成目标文件，必须提供表中的文件。<br>第三部分是command，是一条命令。<br>一二部分叫做依赖关系表，二中的文件只要有一个发生了变化，就会触发第三部分command。<br>有了makefile，我们只要把它放在工程的目录下，输入make就可自动执行。</p>
+<blockquote>
+<p>请注意，在第二行的“gcc”命令之前必须要有一个tab缩进。语法规定Makefile中的任何命令之前都必须要有一个tab缩进，否则make就会报错。</p>
+</blockquote>
+<p>#改进makefile<br>上面的makefile只有最基本的功能，我们接下来一步步修改它，实现更加灵活的功能。<br>先加入几个容器</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 cc &#x3D; gcc</span><br><span class="line">2 prom &#x3D; sortMain</span><br><span class="line">3 src &#x3D; sort0.c sortMain.c</span><br><span class="line">4 </span><br><span class="line">5 $(prom) : $(src)</span><br><span class="line">6             $(cc) -o $(prom) $(src)</span><br></pre></td></tr></table></figure>
+<p>加入的几个变量严格意义上是不变的，类似于c语言中的宏定义。把cc，prom，src理解成容器，把对应的内容放进去，可以随时修改。在写makefile每一组成单元的时候，可以使用这些容器，避免了重复的字符串输入。也方便后续修改。<br>现在我们的makefile比较灵活了，但是仔细观察，发现我们的依赖关系仍然很重，无法解决修改一个文件需全部重新编译的问题。<br>我们发现整理出一个合适的依赖关系链非常有必要，而关系链也不是唯一的，根据工程实际考虑。在这个例子中，因为sort.h不在依赖关系表中，所以它的变化不会被侦测到，需要把其引入。我们考虑编译的具体过程，可执行文件生成需要依赖.o文件，.o文件的生成分别依赖各自对应的.c文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 cc &#x3D; gcc</span><br><span class="line"> 2 prom &#x3D; sortMain</span><br><span class="line"> 3 deps &#x3D; sort.h</span><br><span class="line"> 4 obj &#x3D; sort0.o sortMain.o</span><br><span class="line"> 5 </span><br><span class="line"> 6 $(prom) : $(obj)</span><br><span class="line"> 7             $(cc) -o $(prom) $(obj)</span><br><span class="line"> 8 </span><br><span class="line"> 9 sort0.o : sort0.c $(deps)</span><br><span class="line">10     $(cc) -c sort0.c</span><br><span class="line">11 </span><br><span class="line">12 sortMain.o : sortMain.c $(deps)</span><br><span class="line">13     $(cc) -c sortMain.c</span><br></pre></td></tr></table></figure>
+<p>以上，我们可以实现依赖中包含所有源文件，重新部分编译等功能。但是，我们发现代码非常冗余，需要利用makefile的语法规则精简以上代码。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 cc &#x3D; gcc</span><br><span class="line"> 2 prom &#x3D; sortMain</span><br><span class="line"> 3 deps &#x3D; sort.h</span><br><span class="line"> 4 obj &#x3D; sort0.o sortMain.o</span><br><span class="line"> 5 </span><br><span class="line"> 6 $(prom) : $(obj)</span><br><span class="line"> 7             $(cc) -o $(prom) $(obj)</span><br><span class="line"> 8 </span><br><span class="line"> 9 %.o : %.c $(deps)</span><br><span class="line">10     $(cc) -c $&lt; -o $@</span><br><span class="line">11 </span><br><span class="line">12 clean:</span><br><span class="line">13     rm $(obj) $(prom)</span><br></pre></td></tr></table></figure>
+<p>这样就简洁多了，但是好像还缺少一个功能，就是我们经常使用的make clean。我们把它加上。<br>接下来我们还要解决一个问题，就是向工程中添加.c.h文件的时候需要手工操作，为此进一步修改。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 cc &#x3D; gcc</span><br><span class="line"> 2 prom &#x3D; sortMain</span><br><span class="line"> 3 deps &#x3D; $(shell find .&#x2F; -name &quot;*.h&quot;)</span><br><span class="line"> 4 src &#x3D; $(shell find .&#x2F; -name &quot;*.c&quot;)</span><br><span class="line"> 5 obj &#x3D; $(src:%.c&#x3D;%.o)</span><br><span class="line"> 6 </span><br><span class="line"> 7 $(prom) : $(obj)</span><br><span class="line"> 8             $(cc) -o $(prom) $(obj)</span><br><span class="line"> 9 </span><br><span class="line">10 %.o : %.c $(deps)</span><br><span class="line">11     $(cc) -c $&lt; -o $@</span><br><span class="line">12 </span><br><span class="line">13 clean:</span><br><span class="line">14     rm $(obj) $(prom)</span><br></pre></td></tr></table></figure>
+<p>主要是添加了shell函数，这里是发现当前路径内所有的.h.c文件。再把src中所有*.c替换成*.o，实际上就是列出了所有.c文件(需要编译成.o文件)。</p>
+<hr>
+<p>总结一下，从makefile的详细制作步骤中，我们可以学习到优化的过程，从中建立一种思想：对于扩展的需求，只需要去查找相应的规则用以进行编写，实现一次编码，多次使用，提升开发的效率。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+</search>
