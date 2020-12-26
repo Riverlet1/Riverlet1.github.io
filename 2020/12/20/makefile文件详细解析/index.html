@@ -390,6 +390,7 @@
 
 
 
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -486,6 +487,26 @@
 
 
 
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('#gitalk-container', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '8ed6a7fb769b830c9698# GitHub Application Client ID',
+      clientSecret: 'dd2fffd84f3bda947017c4b56515818c86e1bbab',
+      repo        : 'gitment-comments# Repository name to store issues',
+      owner       : 'Riverlet1# GitHub repo owner',
+      admin       : ['Riverlet1'],
+      id          : '5f82cf59710becc55f5f922d406e764e',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 
