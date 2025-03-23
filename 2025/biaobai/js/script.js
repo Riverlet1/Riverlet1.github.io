@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 按钮事件
     noBtn.addEventListener('mouseover', () => {
-        noBtn.style.transform = `translate(${Math.random()*50-25}px, ${Math.random()*50-25}px)`;
+        noBtn.style.transform = `translate(${Math.random()*50-5}px, ${Math.random()*50-5}px)`;
     });
 
     yesBtn.addEventListener('click', () => {
